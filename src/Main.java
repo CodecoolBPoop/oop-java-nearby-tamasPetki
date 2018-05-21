@@ -13,7 +13,7 @@ public class Main {
             System.out.println("Please give the second number:");
             int y = in.nextInt();
 
-            System.out.println("Please give the second number:");
+            System.out.println("Please give the range:");
             int range = in.nextInt();
 
             Nearby nearby = new Nearby();
