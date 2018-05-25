@@ -1,12 +1,14 @@
 import java.util.Scanner;
 
-public class Main {
+class Main {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        boolean ready = true;
+        boolean ready;
 
         do {
+            Nearby nearby = new Nearby();
+
             System.out.println("Please give the first number:");
             int x = in.nextInt();
 
@@ -16,15 +18,17 @@ public class Main {
             System.out.println("Please give the range:");
             int range = in.nextInt();
 
-            Nearby nearby = new Nearby();
+
 
             try {
-                for (int i : nearby.nearby(x, y, range)) {
+                int[] fromTo = nearby.trimIfArrayIsShorterThanInput(x,y,range);
+
+                for (int i : nearby.nearbyElements(x, fromTo[0], fromTo[1], y)) {
                     System.out.println(i);
-                };
+                }
                 ready = true;
             }
-            catch(ArrayIndexOutOfBoundsException exception) {
+            catch(NegativeArraySizeException | ArrayIndexOutOfBoundsException exception) {
                 System.out.println("Sorry, the numbers are out of the arrays");
                 ready = false;
             }
