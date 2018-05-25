@@ -18,12 +18,9 @@ class Main {
             System.out.println("Please give the range:");
             int range = in.nextInt();
 
-
-
             try {
-                int[] fromTo = nearby.trimIfArrayIsShorterThanInput(x,y,range);
 
-                for (int i : nearby.nearbyElements(x, fromTo[0], fromTo[1], y)) {
+                for (int i : nearby.nearby(x, y, range)) {
                     System.out.println(i);
                 }
                 ready = true;

@@ -6,27 +6,18 @@ class Nearby {
             { 321, 320, 32, 3, 41241, -11, -12, -13, -66, -688 }
     };
 
-    public int[] trimIfArrayIsShorterThanInput(int x, int y, int range) {
-        int[] trimmedArray = new int[2];
+    int[] nearby(int x, int y, int range) {
+        int from = y-range;
+        int to = y+range;
 
-        int counterFrom = y-range;
-        int counterTo = y+range;
-
-        if (counterFrom < 0) {
-            counterFrom = 0;
+        if (from < 0) {
+            from = 0;
         }
 
-        if (counterTo > multi[x].length-1) {
-            counterTo = multi[x].length-1;
+        if (to > multi[x].length-1) {
+            to = multi[x].length-1;
         }
 
-        trimmedArray[0] = counterFrom;
-        trimmedArray[1] = counterTo;
-
-        return trimmedArray;
-    }
-
-    public int[] nearbyElements(int x, int from, int to, int y) {
         int[] nearbyElements = new int[(to-from)];
         int counter = 0;
 
