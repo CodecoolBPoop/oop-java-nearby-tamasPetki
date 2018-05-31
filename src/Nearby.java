@@ -18,8 +18,7 @@ class Nearby {
                 continue;
             }
 
-            nearbyElements[counter] = multi[x][start];
-            counter++;
+            nearbyElements[counter++] = multi[x][start];
         }
 
         return nearbyElements;
