@@ -7,16 +7,8 @@ class Nearby {
     };
 
     int[] nearby(int x, int y, int range) {
-        int from = y-range;
-        int to = y+range;
-
-        if (from < 0) {
-            from = 0;
-        }
-
-        if (to > multi[x].length-1) {
-            to = multi[x].length-1;
-        }
+        int from = Math.max(y-range,0);
+        int to = Math.min(y+range,multi[x].length-1);
 
         int[] nearbyElements = new int[(to-from)];
         int counter = 0;
